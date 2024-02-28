@@ -197,23 +197,24 @@ class _OrderScreenState extends State<OrderScreen> {
                       style: const TextStyle(fontSize: 20.0),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      _showConfirmationDialog();
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(20.0),
-                      alignment: Alignment.center,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(
-                        color: Colors.green,
+                  if (_totalPrice != 0) // Проверяем, что общая стоимость не равна 0
+                    InkWell(
+                      onTap: () {
+                        _showConfirmationDialog();
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(20.0),
+                        alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: const BoxDecoration(
+                          color: Colors.green,
+                        ),
+                        child: const Text(
+                          'Check Out',
+                          style: TextStyle(fontSize: 20.0, color: Colors.white),
+                        ),
                       ),
-                      child: const Text(
-                        'Check Out',
-                        style: TextStyle(fontSize: 20.0, color: Colors.white),
-                      ),
-                    ),
-                  )
+                    )
                 ],
               ),
             ),
